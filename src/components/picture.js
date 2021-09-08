@@ -4,8 +4,9 @@ export default function Picture(props) {
     const { pic } = props
     return (
         <div>
-            <img src='https://apod.nasa.gov/apod/image/2109/M31WideField_Ziegenbalg_960.jpg' alt='a pic from NASA' />
-            <p>Title: </p>
+            <img src={pic.url} alt='a pic from NASA' />
+            <h2>Title: {pic.title}</h2>
+            <p>{pic.explanation}</p>
         </div>
     )
 }

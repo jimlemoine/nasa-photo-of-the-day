@@ -7,22 +7,25 @@ import Footer from './components/footer';
 import "./App.css";
 
 function App() {
-  //planning to display an array of pics
+  
   const [pic, setPic] = useState(null);
+
   useEffect(() => {
     // console.log(`${BASE_URL}${API_KEY}`)
     axios.get(`${BASE_URL}${API_KEY}`)
     .then(resp => {
-      console.log(resp.data);
+      // console.log(resp.data);
       setPic(resp.data);
     })
     .catch(err => console.error(err));
   }, [])
     // console.log(pic);
+
   return (
     <div className="App">
       <Header />
-      <Pictures pic={pic} />
+      {pic && 
+      <Pictures pic={pic} />}
       <Footer />
     </div>
   );

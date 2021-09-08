@@ -5,7 +5,7 @@ import Picture from './picture';
 
 export default function Pictures(props) {
     const { pic } = props;
-    console.log(pic);
+    // console.log(pic);
     return (
         <div>
             <Picture pic={pic} />
