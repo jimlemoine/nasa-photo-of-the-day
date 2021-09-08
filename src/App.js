@@ -1,17 +1,29 @@
 import React, { useState, useEffect } from "react";
 import axios from 'axios';
 import { BASE_URL, API_KEY } from './constants';
+import Header from './components/header';
+import Pictures from './components/pictures';
+import Footer from './components/footer';
 import "./App.css";
 
 function App() {
   //planning to display an array of pics
-  const [pics, setPics] = useState([]);
+  const [pic, setPic] = useState(null);
+  useEffect(() => {
+    // console.log(`${BASE_URL}${API_KEY}`)
+    axios.get(`${BASE_URL}${API_KEY}`)
+    .then(resp => {
+      console.log(resp.data);
+      setPic(resp.data);
+    })
+    .catch(err => console.error(err));
+  }, [])
+    // console.log(pic);
   return (
     <div className="App">
-      <p>
-        Read through the instructions in the README.md file to build your NASA
-        app! Have fun <span role="img" aria-label='go!'>🚀</span>!
-      </p>
+      <Header />
+      <Pictures pic={pic} />
+      <Footer />
     </div>
   );
 }
