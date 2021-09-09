@@ -4,7 +4,14 @@ import { BASE_URL, API_KEY } from './constants';
 import Header from './components/header';
 import Pictures from './components/pictures';
 import Footer from './components/footer';
-import "./App.css";
+import styled from 'styled-components';
+
+const WrapperDiv = styled.div`
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-items: center;
+`;
 
 function App() {
   
@@ -22,12 +29,12 @@ function App() {
     // console.log(pic);
 
   return (
-    <div className="App">
+    <WrapperDiv>
       <Header />
       {pic && 
       <Pictures pic={pic} />}
       <Footer />
-    </div>
+    </WrapperDiv>
   );
 }
 
